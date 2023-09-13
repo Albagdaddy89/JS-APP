@@ -25,3 +25,24 @@ pokemonList.push({
      height: 4,
     types: ["electric"] });
    
+// Loop through the array and write the name and height of each Pokémon to the document
+
+for (let i = 0; i < pokemonList.length; i++) {
+  document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + ") ");
+  if (pokemonList[i].height > 10) {
+    document.write("- Wow, that's big! ");
+  }
+  if (pokemonList[i].height < 5) {
+    document.write("- Aww, it's so small! ");
+  }
+  document.write("<br>");
+}
+
+// highlight the tallest pokemon
+
+let tallestPokemon = pokemonList[0];
+for (let i = 0; i < pokemonList.length; i++) {
+  if (pokemonList[i].height > tallestPokemon.height) {
+    tallestPokemon = pokemonList[i];
+  }
+}
