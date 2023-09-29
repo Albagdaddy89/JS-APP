@@ -21,28 +21,30 @@ pokemonList.push({
 });
 
 pokemonList.push({
-     name: "Pikachu",
-     height: 4,
-    types: ["electric"] });
-   
-// Loop through the array and write the name and height of each Pokémon to the document
+  name: "Pikachu",
+  height: 4,
+  types: ["electric"]
+});
 
-for (let i = 0; i < pokemonList.length; i++) {
-  document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + ") ");
-  if (pokemonList[i].height > 10) {
+// Loop through the array and write the name, height, and additional messages to the document
+pokemonList.forEach(pokemon => {
+  document.write(pokemon.name + " (height: " + pokemon.height + ") ");
+  if (pokemon.height > 10) {
     document.write("- Wow, that's big! ");
   }
-  if (pokemonList[i].height < 5) {
+  if (pokemon.height < 5) {
     document.write("- Aww, it's so small! ");
   }
   document.write("<br>");
-}
+});
 
-// highlight the tallest pokemon
-
+// Find the tallest Pokémon using forEach() and write its name and height to the document
 let tallestPokemon = pokemonList[0];
-for (let i = 0; i < pokemonList.length; i++) {
-  if (pokemonList[i].height > tallestPokemon.height) {
-    tallestPokemon = pokemonList[i];
+pokemonList.forEach(pokemon => {
+  if (pokemon.height > tallestPokemon.height) {
+    tallestPokemon = pokemon;
   }
-}
+});
+document.write("<br>");
+document.write("The tallest Pokémon is " + tallestPokemon.name + " (height: " + tallestPokemon.height + ")!");
+
