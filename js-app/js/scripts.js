@@ -48,3 +48,33 @@ pokemonList.forEach(pokemon => {
 document.write("<br>");
 document.write("The tallest Pokémon is " + tallestPokemon.name + " (height: " + tallestPokemon.height + ")!");
 
+const pokemonRepository = (function () {
+  // Private array to store Pokémon data
+  const pokemonList = [];
+
+  // Public functions
+  function getAll() {
+    return pokemonList;
+  }
+
+  function add(item) {
+    // Check if 'item' is a valid Pokémon object (you can add additional validation if needed)
+    if (typeof item === 'object' && 'name' in item && 'height' in item && 'types' in item) {
+      pokemonList.push(item);
+    } else {
+      console.error("Invalid Pokémon data. Please provide an object with 'name', 'height', and 'types' properties.");
+    }
+  }
+
+  // Return an object with public functions
+  return {
+    getAll: getAll,
+    add: add,
+  };
+})();
+
+
+// Access the pokemonList array using the getAll() function
+const allPokemon = pokemonRepository.getAll();
+console.log(allPokemon);
+
