@@ -35,6 +35,19 @@ const pokemonRepository = (function () {
 
     // Append the list item to the <ul> element
     pokemonList.appendChild(listItem);
+
+    // Add an event listener to the button to show details when clicked
+    button.addEventListener("click", function () {
+      showDetails(pokemon); // Call the showDetails function with the Pokémon object
+    });
+  }
+
+  // Function to show Pokémon details in the console
+  function showDetails(pokemon) {
+    console.log("Name: " + pokemon.name);
+    console.log("Height: " + pokemon.height);
+    console.log("Types: " + pokemon.types.join(", "));
+    // You can add more details as needed
   }
 
   // Return an object with public functions and data
