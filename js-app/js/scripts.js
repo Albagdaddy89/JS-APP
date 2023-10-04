@@ -1,26 +1,51 @@
+// Create an IIFE (Immediately Invoked Function Expression) to encapsulate the code
 const pokemonRepository = (function () {
   // Private array to store Pokémon data
   const pokemonList = [];
 
-  // Public functions
+  // Function to retrieve all Pokémon objects
   function getAll() {
     return pokemonList;
   }
 
+  // Function to add a Pokémon object to the list
   function add(pokemon) {
     pokemonList.push(pokemon);
   }
 
+  // Function to add a Pokémon to the list and create a corresponding list item in the HTML
+  function addListItem(pokemon) {
+    // Find the <ul> element with the class "pokemon-list"
+    const pokemonList = document.querySelector(".pokemon-list");
 
+    // Create a new <li> element
+    const listItem = document.createElement("li");
 
-  // Return an object with public functions
+    // Create a <button> element
+    const button = document.createElement("button");
+
+    // Set the button's text to the Pokémon's name
+    button.innerText = pokemon.name;
+
+    // Add a CSS class to the button for styling
+    button.classList.add("button-class");
+
+    // Append the button to the list item
+    listItem.appendChild(button);
+
+    // Append the list item to the <ul> element
+    pokemonList.appendChild(listItem);
+  }
+
+  // Return an object with public functions and data
   return {
     getAll: getAll,
     add: add,
+    addListItem: addListItem,
   };
 })();
 
-
+// Add Pokémon objects to the repository
 pokemonRepository.add({
   name: "Bulbasaur",
   height: 7,
@@ -45,28 +70,7 @@ pokemonRepository.add({
   types: ["electric"]
 });
 
-// Access the pokemonList array using the getAll() function
-const allPokemon = pokemonRepository.getAll();
-console.log(allPokemon);
-
-
-// Loop through the array and log information 
-allPokemon.forEach(pokemon => {
-  console.log(pokemon.name + " (height: " + pokemon.height + ") ");
-  if (pokemon.height > 10) {
-    console.log("- Wow, that's big! ");
-  }
-  if (pokemon.height < 5) {
-    console.log("- Aww, it's so small! ");
-  }
+// Iterate through the Pokémon list and add each Pokémon to the HTML
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
 });
-
-// Find the tallest Pokémon using forEach() and log its name and height
-let tallestPokemon = allPokemon[0];
-allPokemon.forEach(pokemon => {
-  if (pokemon.height > tallestPokemon.height) {
-    tallestPokemon = pokemon;
-  }
-});
-
-console.log("The tallest Pokémon is " + tallestPokemon.name + " (height: " + tallestPokemon.height + ")!");
