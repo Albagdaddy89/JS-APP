@@ -38,16 +38,51 @@ const pokemonRepository = (function () {
 
     // Add an event listener to the button to show details when clicked
     button.addEventListener("click", function () {
-      showDetails(pokemon); // Call the showDetails function with the Pokémon object
+      // Edit your showDetails() function to load Pokémon details from the API
+      loadDetails(pokemon).then(function () {
+        // Log the result in the console
+        console.log(pokemon);
+      });
     });
   }
 
-  // Function to show Pokémon details in the console
-  function showDetails(pokemon) {
-    console.log("Name: " + pokemon.name);
-    console.log("Height: " + pokemon.height);
-    console.log("Types: " + pokemon.types.join(", "));
-    // You can add more details as needed
+  // Function to load Pokémon data from the API
+  function loadList() {
+    return fetch('https://pokeapi.co/api/v2/pokemon/')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        // Iterate through the API results and add each Pokémon to the list
+        data.results.forEach(function (item) {
+          const pokemon = {
+            name: item.name,
+            detailsUrl: item.url,
+          };
+          add(pokemon);
+        });
+      })
+      .catch(function (e) {
+        console.error(e);
+      });
+  }
+
+  // Function to load Pokémon details from the API
+  function loadDetails(pokemon) {
+    const url = pokemon.detailsUrl;
+    return fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (details) {
+        // Assign details to the Pokémon object
+        pokemon.imgUrl = details.sprites.front_default;
+        pokemon.height = details.height;
+        // You can add more details as needed
+      })
+      .catch(function (e) {
+        console.error(e);
+      });
   }
 
   // Return an object with public functions and data
@@ -55,35 +90,17 @@ const pokemonRepository = (function () {
     getAll: getAll,
     add: add,
     addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails,
   };
 })();
 
-// Add Pokémon objects to the repository
-pokemonRepository.add({
-  name: "Bulbasaur",
-  height: 7,
-  types: ["grass", "poison"]
-});
-
-pokemonRepository.add({
-  name: "Charizard",
-  height: 17,
-  types: ["fire", "flying"]
-});
-
-pokemonRepository.add({
-  name: "Squirtle",
-  height: 5,
-  types: ["water"]
-});
-
-pokemonRepository.add({
-  name: "Pikachu",
-  height: 4,
-  types: ["electric"]
-});
-
-// Iterate through the Pokémon list and add each Pokémon to the HTML
-pokemonRepository.getAll().forEach(function (pokemon) {
-  pokemonRepository.addListItem(pokemon);
+// Call the loadList function to fetch Pokémon data and populate the list
+pokemonRepository.loadList().then(function () {
+  // Execute getAll from the pokemonRepository
+  const allPokemon = pokemonRepository.getAll();
+  // Iterate through Pokémon and call the addListItem function
+  allPokemon.forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
+  });
 });
