@@ -123,11 +123,9 @@
 function hideModal() {
   let modalContainer = document.querySelector('#modal-container');
   modalContainer.classList.remove('is-visible');
-  if (dialogPromiseReject) {
-    dialogPromiseReject();
-    dialogPromiseReject = null;
+  
   }
-}
+
 
 // Add event listener to close modal when 'Escape' key is pressed
 window.addEventListener('keydown', (e) => {
