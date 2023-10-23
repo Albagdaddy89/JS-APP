@@ -15,15 +15,22 @@
     }
 
     // Add a button for each Pokemon to the HTML
-    function addListItem(pokemon) {
-      const pokemonListElement = document.querySelector(".pokemon-list");
-      const listItem = document.createElement("li");
-      const button = document.createElement("button");
-      button.innerText = pokemon.name;
-      button.classList.add("custom-button");
-      listItem.appendChild(button);
-      pokemonListElement.appendChild(listItem);
-
+    const addListItem = pokemon => {
+      const $pokemonListElement = $('.pokemon-list');
+  
+      // Create a div for the grid column. Assuming you want a 3-column layout for medium screens.
+      let $colDiv = $('<div>').addClass('col-md-4 mb-3');
+      
+      let $button = $('<button>')
+                      .addClass('btn btn-primary btn-block')
+                      .text(pokemon.name)
+                      .on('click', () => showDetails(pokemon));
+      
+      $colDiv.append($button); // Append button to the column div.
+      $pokemonListElement.append($colDiv); // Append the column div to the container.
+  };
+  
+    
       // Event listener to display details when Pokemon button is clicked
       button.addEventListener("click", function () {
         showDetails(pokemon);
@@ -32,7 +39,7 @@
 
     // Fetch list of Pokemon from the API and add to the pokemonList array
     function loadList() {
-      return fetch("https://pokeapi.co/api/v2/pokemon/")
+      return fetch("https://pokeapi.co/api/v2/pokemon/?limit=150")
         .then(response => response.json())
         .then(data => {
           data.results.forEach(item => {

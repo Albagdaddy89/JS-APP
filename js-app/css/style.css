@@ -23,7 +23,7 @@ body {
   overflow: auto; 
   
   /* this is used to center the modal */
-  display: grid;
+  display: flex;
   text-align: center;
 }
 
@@ -56,6 +56,8 @@ body {
 }
 
 .custom-button {
+  /* make buttons grid with columns and rows */
+  display: grid;
   background-color: red;
   color: white;
   border: 2px solid black;
@@ -76,4 +78,13 @@ body {
 
 body {
   background-color: hsl(61, 69%, 51%);
+}
+
+#pokemon-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  list-style-type: none;
 }
