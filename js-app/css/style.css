@@ -1,90 +1,64 @@
-body {
-  font-family: Arial, sans-serif;
-}
-
-#modal-container {
-  display: none;
-}
-
-#modal-container.is-visible {
-  position: fixed;
-  padding: 20px;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  
-  /* to show it above other content */
-  z-index: 999; 
-  
-  /* to allow scrolling if the screen is not high enough*/
-  overflow: auto; 
-  
-  /* this is used to center the modal */
-  display: flex;
-  text-align: center;
-}
-
-.modal {
-  margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  background: #fff;
-  padding: 15px;
-  width: 100%;
-  max-width: 700px;
-  text-align: left;
-}
-
-.modal-close {
-  float: right;
-  appearance: none;
-  border: 0;
-  background: none;
-  color: #777;
-  text-decoration: underline;
-}
-
-.modal h1 {
-  margin-top: 0;
-}
-
-.modal p {
-  margin-bottom: 0;
-}
-
-.custom-button {
-  /* make buttons grid with columns and rows */
+/* Resetting the styles for list items */
+.pokemon-list {
   display: grid;
-  background-color: red;
-  color: white;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+  gap: 16px; 
+  list-style: none; 
+  padding: 0; 
+}
+
+
+.pokemon-list li {
+  flex: 1 1 150px;  /* This sets the flex-basis (or the "ideal" size) of each item to 150px */
+  display: flex;    /* This turns each li into a flex container too */
+  justify-content: center; /* This centers the button within each li */
+}
+
+/* Resetting and styling the ball button */
+.btn-ball {
+  width: 100px; /* Increase the size of the ball */
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(red, red 50%, white 50%, white);
   border: 2px solid black;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  border-radius: 4px;  /* This will give the button slightly rounded corners */
-}
-
-.custom-button:hover {
-  background-color: darkred;
-}
-
-
-.custom-button:hover {
-  background-color: darkred;
-}
-
-body {
-  background-color: hsl(61, 69%, 51%);
-}
-
-#pokemon-list li {
+  position: relative;
+  overflow: hidden;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  list-style-type: none;
+  align-items: flex-end; /* align the text to the bottom */
+  justify-content: center;
+  color: black; /* Text color */
+  padding-bottom: 10px; /* Space from bottom */
+}
+
+.btn-ball::before,
+.btn-ball::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: black;
+}
+
+.btn-ball::before {
+  width: 90px; /* Adjust according to the button's size */
+  height: 5px;
+}
+
+.btn-ball::after {
+  width: 15px; /* Adjust according to the button's size */
+  height: 15px;
+  border-radius: 50%;
+}
+
+
+.btn-ball:hover {
+  background-color: #e5b605;
+}
+
+.pokemon-modal-image {
+  width: 300px;  /* Adjust this value to your preference */
+  height: auto; /* To maintain aspect ratio */
+  display: block;
+  margin: 0 auto; /* Center the image in the modal */
 }
