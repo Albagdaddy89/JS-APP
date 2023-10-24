@@ -237,3 +237,10 @@ main p {
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
 }
+
+.custom-navbar {
+  font-family: 'Press Start 2P', cursive;
+  background-color: lightblue;  /* or any other color of your choice */
+  font-size: 1.5rem;  /* adjust size to make navbar text larger */
+  padding: 20px;  /* increase padding to make navbar taller */
+}
