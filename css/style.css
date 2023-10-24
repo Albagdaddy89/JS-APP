@@ -204,7 +204,7 @@ header h1, h2 {
 
 body {
   background-color: rgba(248, 248, 106, 0.993);
-  background-image: url('/imgs/allPokemon.png');
+  background-image: url('imgs/allPokemon.png');
   background-repeat: no-repeat; 
   background-size: cover; 
   background-position: center center; 
