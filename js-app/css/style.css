@@ -33,7 +33,7 @@
   width: 200px; /* Increase the size of the ball */
   height: 200px;
   border-radius: 50%;
-  background: linear-gradient(red, red 50%, white 50%, white);
+  background: linear-gradient(rgb(182, 2, 2), rgb(255, 0, 0) 50%, white 50%, white);
   border: 5px solid black;
   position: relative;
   overflow: hidden;
@@ -84,6 +84,7 @@
 
 
 .pokemon-modal-image {
+  border: none;
   width: 300px;  /* Adjust this value to your preference */
   height: auto; /* To maintain aspect ratio */
   display: block;
@@ -108,26 +109,46 @@
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
 }
 
+/* Modal Content */
 .modal-content {
-  background-color: rgba(248, 248, 106, 0.993);
-  border: black 10px solid;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #FFD700, #FF4500); /* Gradient from yellow to red */
+  border: 3px solid #000;  /* Black border */
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);  /* Shadow with black */
+  color: #000;  /* Black text color */
+  font-family: 'press start 2p', cursive;
 }
 
+/* Modal Header and Footer */
 .modal-header {
-  background-color: rgb(255, 38, 0);
-  color: black;
+  background-color: #ff0000;  /* Red background */
+  color: black;  /* Yellow text color */
+  border: none; /* Removing borders */
+  padding: 10px 20px;  /* Spacing */
 }
-
 .modal-footer {
-  background-color: rgb(255, 38, 0);;
+  background-color: #ff0000;  /* Red background */
+  color: black;  /* Yellow text color */
+  border: none; /* Removing borders */
+  padding: 10px 20px;  /* Spacing */
+}
+/* Close button */
+.close {
+  color: #000;  /* Black color */
+  opacity: 0.8; 
 }
 
-.close {
-  color: black;
-  font-size: 30px;
-  font-weight: bold;
-  opacity: 5;
+.close:hover {
+  color: #1E90FF;  /* Bright blue on hover */
+  opacity: 1; 
+}
+
+
+
+
+/* Additional contrast styling for any other modal elements */
+.modal-body {
+  border-top: 3px solid #000; /* Black border separating header from body */
+  border-bottom: 3px solid #000; /* Black border separating footer from body */
 }
 
 header h1, h2 {

@@ -50,6 +50,7 @@
           .then(details => {
               pokemon.imgUrl = details.sprites.front_default;
               pokemon.height = details.height;
+              pokemon.types = details.types.map(typeObj => typeObj.type.name);
           })
           .catch(e => console.error(e));
       }
@@ -58,6 +59,8 @@
           $('#pokemonModalLabel').text(pokemon.name);
           $('#pokemonImage').attr('src', pokemon.imgUrl).addClass('pokemon-modal-image');
           $('#pokemonHeight').text('Height: ' + pokemon.height);
+          $('#pokemonModal').modal('show');
+          $('#pokemonType').text('Type: ' + pokemon.types.join(', '));
           $('#pokemonModal').modal('show');
       }
 
