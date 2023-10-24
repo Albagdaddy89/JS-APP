@@ -72,7 +72,7 @@
   width: 200px; /* Increase the size of the ball */
   height: 200px;
   border-radius: 50%;
-  background: linear-gradient(rgb(173, 3, 3), rgb(255, 0, 0) 50%, rgb(255, 255, 255) 50%, rgb(228, 221, 221));
+  background: linear-gradient(rgb(150, 2, 2), rgb(255, 0, 0) 50%, rgb(255, 255, 255) 50%, rgb(185, 180, 180));
   border: 5px solid black;
   position: relative;
   overflow: hidden;
@@ -84,6 +84,11 @@
   overflow: hidden;
   color: #333; /* Dark color for better visibility */
   font-size: 15px; /* Adjust to your preference */
+  text-shadow:
+  -1px -1px 0 lightskyblue,  
+   1px -1px 0 lightskyblue,
+  -1px 1px 0 lightskyblue,
+   1px 1px 0 lightskyblue; /* Multiple shadows to create a 3D effect */ 
   
 }
 
