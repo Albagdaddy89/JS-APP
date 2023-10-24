@@ -28,7 +28,7 @@
       
 
       function loadList() {
-          return $.ajax("https://pokeapi.co/api/v2/pokemon/?limit=150", {
+          return $.ajax("https://pokeapi.co/api/v2/pokemon/?limit=30", {
               dataType: 'json'
           })
           .then(data => {

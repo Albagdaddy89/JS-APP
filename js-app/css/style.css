@@ -1,63 +1,79 @@
-/* Resetting the styles for list items */
-.pokemon-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 10fr)); 
-  gap: 16px; 
-  padding: 10px; 
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('CSS/fonts/PressStart2P-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
+
+.pokemon-list {
+  list-style-type: none;  /* Remove bullets */
+  margin: 0;              /* Remove default margins */
+  padding: 0;             /* Remove default padding */
+  display: grid;          /* Apply grid display */
+  grid-template-columns: repeat(3, 1fr); /* Three columns */
+  gap: 16px;  
+  font-family: 'Press Start 2P', cursive; 
+}
 
 .pokemon-list li {
-  flex: 1 1 150px;  /* This sets the flex-basis (or the "ideal" size) of each item to 150px */
-  display: flex;    /* This turns each li into a flex container too */
-  justify-content: center; /* This centers the button within each li */
+  background: none;       /* Remove any background color */
+  border: none;           /* Remove any borders */
+  margin: 0;              /* Remove any margins */
+  padding: 0;             /* Remove any padding */
 }
+
 
 /* Resetting and styling the ball button */
 .btn-ball {
+  font-family: 'Press Start 2P', cursive;
   outline: none;
   background: none;
   border: none;
-  width: 100px; /* Increase the size of the ball */
-  height: 100px;
+  width: 200px; /* Increase the size of the ball */
+  height: 200px;
   border-radius: 50%;
   background: linear-gradient(red, red 50%, white 50%, white);
-  border: 2px solid black;
+  border: 5px solid black;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: flex-end; /* align the text to the bottom */
   justify-content: center;
   color: rgb(14, 147, 199); /* Text color */
-  padding-bottom: 10px; /* Space from bottom */
-  font-family: 'PokemonFont', Arial, sans-serif; /* If 'PokemonFont' isn't available, fallback to Arial or sans-serif */
-  
+  padding-bottom: 40px; /* Space from bottom */
+  overflow: hidden;
   color: #333; /* Dark color for better visibility */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
-  font-size: 14px; /* Adjust to your preference */
-  letter-spacing: 0.5px; /* Space out the letters a bit */
+  font-size: 15px; /* Adjust to your preference */
+  
 }
 
-.btn-ball::before,
+.btn-ball::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0; /* Starts from the left edge of the ball */
+  width: 100%;  /* Stretches the full width of the ball */
+  height: 5px;  /* The thickness of the line */
+  background: black;
+  transform: translateY(-50%); /* Center the line vertically */
+}
+
 .btn-ball::after {
-  content: "";
+  width: 15%;  /* 15% of the button's width */
+  height: 15%; /* 15% of the button's height */
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: black;
+  border-radius: 50%;  /* To ensure it stays a circle */
 }
 
-.btn-ball::before {
-  width: 90px; /* Adjust according to the button's size */
-  height: 5px;
-}
 
-.btn-ball::after {
-  width: 15px; /* Adjust according to the button's size */
-  height: 15px;
-  border-radius: 50%;
-}
+
+
 
 
 .btn-ball:hover {
@@ -74,19 +90,14 @@
   margin: 0 auto; /* Center the image in the modal */
 }
 
-@font-face {
-  font-family: 'PokemonFont';
-  src: url('path-to-your-font/PokemonSolid.ttf'); /* Replace with the path to your font file */
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 .btn-pokeball {
   /* ... other styles ... */
 
-  font-family: 'PokemonFont', Arial, sans-serif; /* If 'PokemonFont' isn't available, fallback to Arial or sans-serif */
+  font-family: 'Press Start 2P', cursive, Arial, sans-serif; /* If 'PokemonFont' isn't available, fallback to Arial or sans-serif */
   color: #333; /* Dark color for better visibility */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
   font-size: 5px; /* Adjust to your preference */
   
 }
@@ -98,18 +109,18 @@
 }
 
 .modal-content {
-  background-color: lightyellow;
-  border: black 5px solid;
+  background-color: rgba(248, 248, 106, 0.993);
+  border: black 10px solid;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .modal-header {
-  background-color: rgb(233, 79, 52);
+  background-color: rgb(255, 38, 0);
   color: black;
 }
 
 .modal-footer {
-  background-color: rgb(233, 79, 52);;
+  background-color: rgb(255, 38, 0);;
 }
 
 .close {
@@ -117,4 +128,47 @@
   font-size: 30px;
   font-weight: bold;
   opacity: 5;
+}
+
+header h1, h2 {
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  background-color: rgba(248, 248, 106, 0.993)
+}
+
+main p {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: lightblue;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-logo {
+  font-size: 24px;
+  font-weight: bold;
+  /* If you want to use the "Press Start 2P" font for the logo too: */
+  font-family: 'Press Start 2P', cursive;
+}
+
+.nav-search {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+
+  /* Optional: Adding a subtle shadow on focus for better UX */
+  &:focus {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
 }
