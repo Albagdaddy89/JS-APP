@@ -9,7 +9,7 @@
 .pokemon-list {
   /* ... other styles ... */
   display: grid;
-  grid-template-columns: repeat(1, 1fr); 
+  grid-template-columns: repeat(2, 1fr); 
   /* ... other styles ... */
 }
 
@@ -124,7 +124,7 @@
 
 
 .btn-ball:hover {
-  background: linear-gradient(#740000, #d10000 50%, #acabab 50%, #f2f2f2);
+  background: linear-gradient(#790000, #d10000 50%, #acabab 50%, #f2f2f2);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -158,7 +158,7 @@
 
 /* Modal Content */
 .modal-content {
-  background: linear-gradient(135deg, #ffee00, #fcfcfc); /* Gradient from yellow to red */
+  background: linear-gradient(135deg, #ffee00, #f3eaea); /* Gradient from yellow to red */
   border: 3px solid #000;  /* Black border */
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);  /* Shadow with black */
   color: #000;  /* Black text color */
