@@ -5,16 +5,55 @@
   font-style: normal;
 }
 
-
+/* Default to 1 button per row for very small devices */
 .pokemon-list {
-  list-style-type: none;  /* Remove bullets */
-  margin: 0;              /* Remove default margins */
-  padding: 0;             /* Remove default padding */
-  display: grid;          /* Apply grid display */
-  grid-template-columns: repeat(3, 1fr); /* Three columns */
-  gap: 16px;  
-  font-family: 'Press Start 2P', cursive; 
+  /* ... other styles ... */
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); 
+  /* ... other styles ... */
 }
+
+/* 2 buttons per row for slightly larger devices, for example >= 480px */
+@media screen and (min-width: 480px) {
+  .pokemon-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3 buttons per row for devices >= 768px, e.g., tablets in portrait */
+@media screen and (min-width: 768px) {
+  .pokemon-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 4 buttons per row for devices >= 1024px, e.g., tablets in landscape/desktops */
+@media screen and (min-width: 1024px) {
+  .pokemon-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 5 buttons per row for larger desktop screens >= 1200px */
+@media screen and (min-width: 1200px) {
+  .pokemon-list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* 6 buttons per row for larger widescreen devices >= 1440px */
+@media screen and (min-width: 1440px) {
+  .pokemon-list {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media screen and (min-width: 1640px) {
+  .pokemon-list {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
 
 .pokemon-list li {
   background: none;       /* Remove any background color */
@@ -33,7 +72,7 @@
   width: 200px; /* Increase the size of the ball */
   height: 200px;
   border-radius: 50%;
-  background: linear-gradient(rgb(182, 2, 2), rgb(255, 0, 0) 50%, white 50%, white);
+  background: linear-gradient(rgb(173, 3, 3), rgb(255, 0, 0) 50%, rgb(255, 255, 255) 50%, rgb(228, 221, 221));
   border: 5px solid black;
   position: relative;
   overflow: hidden;
@@ -41,7 +80,7 @@
   align-items: flex-end; /* align the text to the bottom */
   justify-content: center;
   color: rgb(14, 147, 199); /* Text color */
-  padding-bottom: 40px; /* Space from bottom */
+  padding-bottom: 50px; /* Space from bottom */
   overflow: hidden;
   color: #333; /* Dark color for better visibility */
   font-size: 15px; /* Adjust to your preference */
@@ -77,8 +116,8 @@
 
 
 .btn-ball:hover {
-  background: linear-gradient(#e60000, #e60000 50%, #f2f2f2 50%, #f2f2f2);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(#740000, #d10000 50%, #acabab 50%, #f2f2f2);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -111,30 +150,30 @@
 
 /* Modal Content */
 .modal-content {
-  background: linear-gradient(135deg, #FFD700, #FF4500); /* Gradient from yellow to red */
+  background: linear-gradient(135deg, #ffee00, #fcfcfc); /* Gradient from yellow to red */
   border: 3px solid #000;  /* Black border */
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);  /* Shadow with black */
   color: #000;  /* Black text color */
-  font-family: 'press start 2p', cursive;
+  font-family: 'Press Start 2p', cursive;
 }
 
 /* Modal Header and Footer */
 .modal-header {
-  background-color: #ff0000;  /* Red background */
+  background: linear-gradient(135deg, #f7b80a, #f57e7e);  
   color: black;  /* Yellow text color */
   border: none; /* Removing borders */
   padding: 10px 20px;  /* Spacing */
 }
 .modal-footer {
-  background-color: #ff0000;  /* Red background */
+  background: linear-gradient(135deg, #f57e7e, #f7b80a);
   color: black;  /* Yellow text color */
   border: none; /* Removing borders */
   padding: 10px 20px;  /* Spacing */
 }
 /* Close button */
 .close {
-  color: #000;  /* Black color */
-  opacity: 0.8; 
+  color: #000 !important;  /* Black color */
+  opacity: 1 !important;  /* Override default opacity */
 }
 
 .close:hover {
@@ -156,8 +195,13 @@ header h1, h2 {
 }
 
 body {
-  background-color: rgba(248, 248, 106, 0.993)
+  background-color: rgba(248, 248, 106, 0.993);
+  background-image: url('/imgs/allPokemon.png');
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  background-position: center center; 
 }
+
 
 main p {
   font-family: 'Press Start 2P', cursive;
