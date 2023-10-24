@@ -50,7 +50,7 @@
 
 @media screen and (min-width: 1640px) {
   .pokemon-list {
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(7, 1fr);
   }
 }
 
@@ -58,9 +58,12 @@
 .pokemon-list li {
   background: none;       /* Remove any background color */
   border: none;           /* Remove any borders */
-  margin: 0;              /* Remove any margins */
+  margin-top: 15px;              /* Remove any margins */
+  margin-bottom: 10px;              /* Remove any margins */
   padding: 0;             /* Remove any padding */
 }
+
+
 
 
 /* Resetting and styling the ball button */
@@ -69,8 +72,8 @@
   outline: none;
   background: none;
   border: none;
-  width: 200px; /* Increase the size of the ball */
-  height: 200px;
+  width: 150px; /* Increase the size of the ball */
+  height: 150px;
   border-radius: 50%;
   background: linear-gradient(rgb(150, 2, 2), rgb(255, 0, 0) 50%, rgb(255, 255, 255) 50%, rgb(185, 180, 180));
   border: 5px solid black;
@@ -80,10 +83,10 @@
   align-items: flex-end; /* align the text to the bottom */
   justify-content: center;
   color: rgb(14, 147, 199); /* Text color */
-  padding-bottom: 50px; /* Space from bottom */
+  padding-bottom: 40px; /* Space from bottom */
   overflow: hidden;
   color: #333; /* Dark color for better visibility */
-  font-size: 15px; /* Adjust to your preference */
+  font-size: 13px; /* Adjust to your preference */
   text-shadow:
   -1px -1px 0 lightskyblue,  
    1px -1px 0 lightskyblue,
